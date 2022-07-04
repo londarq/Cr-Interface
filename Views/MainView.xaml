@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Grid Margin="10,0,-10,0">
+    <!--<Grid Margin="10,0,-10,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -19,5 +19,38 @@
         <uc:InfoCard Grid.Row="0" Title=" Sales" SubTitle="Compared to" Amount="3" Image="" Margin="0 10  0 0"/>
         <uc:InfoCard Grid.Row="1" Title=" Purchase" SubTitle="Aha" Amount="8" Image="" Margin="0 10 0 0"/>
         <uc:InfoCard Grid.Row="2" Title=" Return" SubTitle="Soglasen" Amount="1" Image="" Margin="0 10 0 0"/>
+    </Grid>-->
+
+    <Grid Margin="15 0 0 0">
+        <ListView ItemsSource="{Binding Assets}" Background="Transparent" BorderBrush="Transparent" SelectionMode="Single"
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Border Style="{StaticResource whiteBorder2}">
+                            <Grid Width="800">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Source="{Binding Image}" Width="35" Height="35" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Symbol}" Style="{StaticResource menuButtonText}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Name}" Style="{StaticResource menuButtonText}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Column="3" Text="{Binding CurrentPrice}" Style="{StaticResource menuButtonText}"
+                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>   
+                                
+                            </Grid>
+                        </Border>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

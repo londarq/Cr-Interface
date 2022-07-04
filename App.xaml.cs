@@ -1,4 +1,5 @@
-﻿using Cr_Interface.Services.API;
+﻿using Cr_Interface.Services;
+using Cr_Interface.Services.API;
 using Cr_Interface.Services.Models;
 using Cr_Interface.ViewModels;
 using System.Windows;
@@ -21,8 +22,9 @@ namespace Cr_Interface
 
 
             MainWindow mainWindow = new MainWindow();
-
-            mainWindow.DataContext = new MainViewModel();
+            ICurrenciesService currencyService = new CurrenciesService();
+           
+            mainWindow.DataContext = MainViewModel.LoadViewModel(currencyService);
             mainWindow.Show();
 
             base.OnStartup(e);

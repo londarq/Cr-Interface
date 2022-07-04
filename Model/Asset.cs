@@ -18,8 +18,8 @@ namespace Cr_Interface.Model
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        //[JsonPropertyName("image")]
-        //public Uri Image { get; set; }
+        [JsonPropertyName("image")]
+        public Uri Image { get; set; }
 
         [JsonPropertyName("current_price")]
         public double CurrentPrice { get; set; }

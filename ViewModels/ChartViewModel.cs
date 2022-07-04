@@ -16,7 +16,7 @@ namespace Cr_Interface.ViewModels
         public ChartValues<double> AssetPrice { get; set; }
         public ObservableCollection<string> TimeIntervals { get; set; }
 
-        public ChartViewModel(IAssetService assetService)
+        private ChartViewModel(IAssetService assetService)
         {
             _assetService = assetService;
 

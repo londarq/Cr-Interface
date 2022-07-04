@@ -12,7 +12,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="20 0 0 0">
+    <Border Style="{StaticResource whiteBorder}" Margin="20 0 0 0">
 
         <Grid Margin="15 5">
             <!--Title-->

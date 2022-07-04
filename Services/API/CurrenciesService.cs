@@ -13,7 +13,7 @@ namespace Cr_Interface.Services.API
     {
         const string URI = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=";
 
-        public async Task<IEnumerable<Asset>> GetTopCurrencies(int amountOfCurrencies = 10)
+        public async Task<List<Asset>> GetTopCurrencies(int amountOfCurrencies = 10)
         {
             using (HttpClient client = new HttpClient())
             {

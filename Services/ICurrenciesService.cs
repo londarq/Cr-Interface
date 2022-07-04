@@ -9,6 +9,6 @@ namespace Cr_Interface.Services
 {
     public interface ICurrenciesService
     {
-        Task<IEnumerable<Asset>> GetTopCurrencies(int amountOfCurrencies);
+        Task<List<Asset>> GetTopCurrencies(int amountOfCurrencies);
     }
 }

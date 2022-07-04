@@ -27,8 +27,8 @@ namespace Cr_Interface
                 if (IsMaximized)
                 {
                     this.WindowState = WindowState.Normal;
-                    this.Width = 1020;
-                    this.Height = 720;
+                    this.Width = 1200;
+                    this.Height = 800;
 
                     IsMaximized = false;
                 }

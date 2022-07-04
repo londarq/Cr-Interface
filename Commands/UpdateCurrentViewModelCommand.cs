@@ -17,9 +17,6 @@ namespace Cr_Interface.Commands
 
         public INavigator _navigator;
 
-        public ChartViewModel chartViewModel { get; set; }
-
-
         public UpdateCurrentViewModelCommand(INavigator navigator)
         {
             _navigator = navigator;
@@ -39,13 +36,12 @@ namespace Cr_Interface.Commands
                 switch(viewType)
                 {
                     case ViewType.Main:
-                        _navigator.CurrentViewModel = new MainViewModel();
+                        ICurrenciesService currencyService = new CurrenciesService();
+                        _navigator.CurrentViewModel = MainViewModel.LoadViewModel(currencyService);
                         break;
                     case ViewType.Chart:
                         IAssetService assetServise = new AssetService();
                         _navigator.CurrentViewModel = ChartViewModel.LoadViewModel(assetServise);
-
-                        //_navigator.CurrentViewModel = new ChartViewModel();
                         break;
                     case ViewType.Convert:
                         _navigator.CurrentViewModel = new ConvertViewModel();

@@ -10,7 +10,7 @@
         xmlns:controls="clr-namespace:Cr_Interface.Controls"
 
         mc:Ignorable="d" 
-        Height="720" Width="1020" AllowsTransparency="True" WindowStyle="None"
+        Height="800" Width="1200" AllowsTransparency="True" WindowStyle="None"
         WindowStartupLocation="CenterScreen" Background="Transparent">
 
 
@@ -61,7 +61,6 @@
                         <TextBlock Text="Tracker" Foreground="#ffffff" FontSize="30" Margin="10 0 0 3">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="20" Opacity="0.9"/>
-
                             </TextBlock.Effect>
                         </TextBlock>
                     </StackPanel>

@@ -13,7 +13,7 @@ namespace Cr_Interface.Services.API
     public class AssetService : IAssetService
     {
         const string requestUriStart = "https://api.coingecko.com/api/v3/coins/";
-        const string requestUriEnd = "/market_chart?vs_currency=usd&days=30";
+        const string requestUriEnd = "/market_chart?vs_currency=usd&days=1";
 
         public async Task<IEnumerable<PriceUWU>> GetAsset(string assetId)
         {

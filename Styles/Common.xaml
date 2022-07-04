@@ -52,6 +52,13 @@
         <Setter Property="CornerRadius" Value="15"/>
         <Setter Property="Padding" Value="20"/>
     </Style>
+    
+    <Style x:Key="whiteBorder2" TargetType="Border">
+        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+
 
     <Style x:Key="titleText" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#083353" />
