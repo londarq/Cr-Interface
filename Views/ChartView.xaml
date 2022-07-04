@@ -11,8 +11,10 @@
 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-        <Grid Margin=" 15 5">
+
+    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="20 0 0 0">
+
+        <Grid Margin="15 5">
             <!--Title-->
             <TextBlock Text="Chart" Style="{StaticResource titleText}"/>
 
@@ -21,13 +23,13 @@
 
             <!--Chart-->
             <Grid>
-                <lvc:CartesianChart Grid.Row="1" Margin="5 40 0 60" LegendLocation="None">
+                <lvc:CartesianChart Margin="5,40,0,23" LegendLocation="None">
 
                     <lvc:CartesianChart.DataTooltip>
                         <lvc:DefaultTooltip Background="Red" Foreground="White" BulletSize="10" Opacity="0.7"/>
                     </lvc:CartesianChart.DataTooltip>
 
-                    
+
                     <lvc:CartesianChart.AxisX>
                         <lvc:Axis Title="Time" Labels="{Binding TimeIntervals}" Foreground="#90a3b2" ShowLabels="True">
                             <lvc:Axis.Separator>
@@ -36,7 +38,7 @@
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisX>
 
-                    
+
                     <lvc:CartesianChart.AxisY>
                         <lvc:Axis Title="Price" Foreground="#90a3b2" ShowLabels="True">
                             <lvc:Axis.Separator>
@@ -45,10 +47,10 @@
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisY>
 
-                    
+
                     <lvc:CartesianChart.Series>
 
-                        <lvc:LineSeries Fill="Transparent" StrokeThickness="3" PointGeometrySize="0" Values="{Binding AssetPrice}">
+                        <lvc:LineSeries Title="$" Fill="Transparent" StrokeThickness="3" PointGeometrySize="0" Values="{Binding AssetPrice}">
                             <lvc:LineSeries.Stroke>
                                 <LinearGradientBrush>
                                     <!--<GradientStop Color="#ffffff" Offset="0.06"/>-->
@@ -62,14 +64,15 @@
 
                 </lvc:CartesianChart>
             </Grid>
-            
+
             <!--Note-->
             <Grid VerticalAlignment="Bottom" Margin="10 0">
                 <Icon:PackIconMaterial Kind="Information" Foreground="#f96654"/>
                 <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" LineHeight="18" Foreground="#b7b7b7"
-                                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                                   Text="**Bitcoin to US dollar price change for one month."/>
             </Grid>
 
         </Grid>
-    
+    </Border>
+
 </UserControl>

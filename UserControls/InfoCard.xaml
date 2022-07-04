@@ -11,8 +11,8 @@
 
             <TextBlock Text="{Binding ElementName=infoCard, Path=SubTitle}" Style="{StaticResource secondaryText}"/>
 
-            <Slider Style="{DynamicResource SliderStyle1}" x:Name="slider" Margin="0 5 0 0" IsSelectionRangeEnabled="True"
-                    Value="{Binding ElementName=infoCard, Path=Amount}" SelectionEnd="{Binding ElementName=slider, Path=Value}"/>
+            <!--<Slider Style="{DynamicResource SliderStyle1}" x:Name="slider" Margin="0 5 0 0" IsSelectionRangeEnabled="True"
+                    Value="{Binding ElementName=infoCard, Path=Amount}" SelectionEnd="{Binding ElementName=slider, Path=Value}"/>-->
         </StackPanel>
     </Border>
 </UserControl>

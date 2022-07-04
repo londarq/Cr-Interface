@@ -7,7 +7,7 @@
         xmlns:uc="clr-namespace:Cr_Interface.UserControls"
 
         xmlns:views="clr-namespace:Cr_Interface.Views"
-
+        xmlns:controls="clr-namespace:Cr_Interface.Controls"
 
         mc:Ignorable="d" 
         Height="720" Width="1020" AllowsTransparency="True" WindowStyle="None"
@@ -20,14 +20,14 @@
         
     <Border CornerRadius="25" Padding="20" Background="#f7f6f4" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="220"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
-                <RowDefinition Height="130"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -52,12 +52,8 @@
                                 </Border.Effect>
 
                                 <!--Icon-->
-                                <Icon:PackIconMaterial Kind="SendOutline" Width="15" Height="15" Foreground="#fb7154"
-                                                       VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0 0 2">
-                                    <Icon:PackIconMaterial.LayoutTransform>
-                                        <RotateTransform Angle="-45" />
-                                    </Icon:PackIconMaterial.LayoutTransform>
-                                </Icon:PackIconMaterial>
+                                <Icon:PackIconMaterial Kind="CurrencyBtc" Width="15" Height="15" Foreground="#fb7154"
+                                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </Grid>
 
@@ -73,56 +69,16 @@
                     <!--Menu Items-->
                     <TextBlock Text="Main" Style="{StaticResource menuTitle}"/>
 
-                    <Button Style="{StaticResource menuButton}" Background="#f7f6f4" Foreground="#fb7657">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Market" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ClipboardTextPlayOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Currencies" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ClipboardFileOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Spredsheets" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="AccountCheckOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Administration" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="BasketPlusOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Sales" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Schedule" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <TextBlock Text="Help" Style="{StaticResource menuTitle}"/>
+                    <!--Navigation-->
+                    <controls:NavigationBar DataContext="{Binding navigator}"/>
 
                 </StackPanel>
             </Border>
 
             <!--Search-->
-            <Border Grid.Column="1" Style="{StaticResource whiteBorder}" Margin="20,0,0,20">
+            <Border Grid.Column="1" Grid.Row="0" Style="{StaticResource whiteBorder}" Margin="20,0,0,20">
                 <Grid>
+                    
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Border Width="50" Height="50" CornerRadius="10" Margin="5 0 20 0">
                             <Border.Background>
@@ -132,16 +88,17 @@
                                 </LinearGradientBrush>
                             </Border.Background>
 
-                            <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
+                            <Icon:PackIconMaterial Kind="Cat" Width="35" Height="25" Foreground="#ffffff"
+                                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Border>
 
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Hello, Team" Style="{StaticResource titleText}" FontSize="26" FontWeight="Bold"/>
-                            <TextBlock Text="Have A Nice Day" Foreground="#6C879A" Margin="0 3 0 0"/>
+                            <TextBlock Text="Hello There" Style="{StaticResource titleText}" FontSize="26" FontWeight="Bold"/>
+                            <TextBlock Text="Have a Nice Day" Foreground="#6C879A" Margin="0 3 0 0"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <!--Search Textbox--><!--
+                    <!--Search Textbox-->
                     <Grid Width="300" HorizontalAlignment="Right">
                         <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
                                    Text="Search for..." IsHitTestVisible="False"
@@ -151,28 +108,13 @@
 
                         <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Foreground="#ff6d46" Margin="0 0 15 0"
                                                HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    </Grid>-->
+                    </Grid>
+                    
                 </Grid>
             </Border>
 
-            <!--Info Card-->
-            <Grid Grid.Column="1" Grid.Row="1" Margin="10,0,-10,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <!--Card-->
-                <uc:InfoCard Grid.Column="0" Title=" Sales" SubTitle="Compared to" Amount="3" Image=""/>
-                <uc:InfoCard Grid.Column="1" Title=" Purchase" SubTitle="Aha" Amount="8" Image=""/>
-                <uc:InfoCard Grid.Column="2" Title=" Return" SubTitle="Soglasen" Amount="1" Image="" Loaded="InfoCard_Loaded"/>
-            </Grid>
-
-            <!--Main Chart Section-->
-            <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="20 20 0 0">
-                <views:ChartView DataContext="{Binding chartViewModel}"/>
-            </Border>
+            <!--Main Section-->
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding navigator.CurrentViewModel}"/>
             
         </Grid>
     </Border>

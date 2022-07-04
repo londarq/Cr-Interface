@@ -13,14 +13,16 @@ namespace Cr_Interface
     {
         protected override async void OnStartup(StartupEventArgs e)
         {
-            //CurrenciesService currenciesService = new CurrenciesService();
-            //var resultCurrenciesService = await currenciesService.GetTopCurrencies();
+            CurrenciesService currenciesService = new CurrenciesService();
+            var resultCurrenciesService = await currenciesService.GetTopCurrencies();
 
             //AssetService assetService = new AssetService();
             //var resultAssetService = await assetService.GetAsset("bitcoin");
 
-            MainWindow mainWindow = new MainWindow() { DataContext = new MainViewModel() };
 
+            MainWindow mainWindow = new MainWindow();
+
+            mainWindow.DataContext = new MainViewModel();
             mainWindow.Show();
 
             base.OnStartup(e);

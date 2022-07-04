@@ -5,12 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cr_Interface.ViewModels
 {
-    public class ChartViewModel
+    public class ChartViewModel : ViewModelBase
     {
         private readonly IAssetService _assetService;
 
@@ -38,7 +37,6 @@ namespace Cr_Interface.ViewModels
             IEnumerable<PriceUWU> prices = await _assetService.GetAsset("bitcoin");
 
             AssetPrice = new ChartValues<double>(prices.Select(p => p.Price));
-            //TimeIntervals = prices.Select(p => p.Time).ToArray(); //new double[prices.Price.Count];
 
             TimeIntervals.Clear();
             foreach (DateTime time in prices.Select(p => p.Time))

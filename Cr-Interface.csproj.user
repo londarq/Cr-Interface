@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\NavigationBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\InfoCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,9 +19,21 @@
     <Compile Update="Views\ChartView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ConvertView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Common.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\InfoCard.xaml">
@@ -28,6 +43,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ChartView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ConvertView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

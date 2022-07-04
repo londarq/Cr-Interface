@@ -13,7 +13,7 @@ namespace Cr_Interface.Services.API
     public class AssetService : IAssetService
     {
         const string requestUriStart = "https://api.coingecko.com/api/v3/coins/";
-        const string requestUriEnd = "/market_chart?vs_currency=usd&days=1";
+        const string requestUriEnd = "/market_chart?vs_currency=usd&days=30";
 
         public async Task<IEnumerable<PriceUWU>> GetAsset(string assetId)
         {
@@ -41,11 +41,6 @@ namespace Cr_Interface.Services.API
 
         public static DateTime UnixTimeStampToDateTime(long unixTimeStamp)
         {
-            // Unix timestamp is seconds past epoch
-            //DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            //dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
-            //return dateTime;
-
             var sourceTime = DateTimeOffset.FromUnixTimeMilliseconds(unixTimeStamp);
             
             return sourceTime.DateTime;
