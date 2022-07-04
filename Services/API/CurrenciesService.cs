@@ -11,25 +11,29 @@ namespace Cr_Interface.Services.API
 {
     public class CurrenciesService : ICurrenciesService
     {
+        const string URI = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=";
+
         public async Task<IEnumerable<Asset>> GetTopCurrencies(int amountOfCurrencies = 10)
         {
             using (HttpClient client = new HttpClient())
             {
-                string requestUri = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=" + amountOfCurrencies;
+                string requestUri = URI + amountOfCurrencies;
 
                 HttpResponseMessage apiResponse = await client.GetAsync(requestUri);
 
                 string jsonResponse = await apiResponse.Content.ReadAsStringAsync();
 
+
                 List<Asset> apiCurrencies = JsonSerializer.Deserialize<List<Asset>>(jsonResponse);
 
-                return apiCurrencies.Select(apiAsset => new Asset()
-                {
-                    Id = apiAsset.Id,
-                    Symbol = apiAsset.Symbol,
-                    Name = apiAsset.Name,
-                    CurrentPrice = apiAsset.CurrentPrice
-                });
+                return apiCurrencies;
+                //    .Select(apiAsset => new Asset()
+                //{
+                //    Id = apiAsset.Id,
+                //    Symbol = apiAsset.Symbol,
+                //    Name = apiAsset.Name,
+                //    CurrentPrice = apiAsset.CurrentPrice
+                //});
             }
         }
     }

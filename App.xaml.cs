@@ -1,11 +1,8 @@
 ﻿using Cr_Interface.Services.API;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+using Cr_Interface.Services.Models;
+using Cr_Interface.ViewModels;
 using System.Windows;
+
 
 namespace Cr_Interface
 {
@@ -16,9 +13,15 @@ namespace Cr_Interface
     {
         protected override async void OnStartup(StartupEventArgs e)
         {
-            CurrenciesService currenciesService = new CurrenciesService();
+            //CurrenciesService currenciesService = new CurrenciesService();
+            //var resultCurrenciesService = await currenciesService.GetTopCurrencies();
 
-            var result = await currenciesService.GetTopCurrencies();
+            //AssetService assetService = new AssetService();
+            //var resultAssetService = await assetService.GetAsset("bitcoin");
+
+            MainWindow mainWindow = new MainWindow() { DataContext = new MainViewModel() };
+
+            mainWindow.Show();
 
             base.OnStartup(e);
         }
