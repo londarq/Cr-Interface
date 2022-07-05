@@ -24,6 +24,10 @@
                 <view:ConvertView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vms:SearchViewModel}">
+                <view:SearchView/>
+            </DataTemplate>
+
         </ResourceDictionary>
 
 

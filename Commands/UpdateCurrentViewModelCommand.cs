@@ -46,6 +46,10 @@ namespace Cr_Interface.Commands
                     case ViewType.Convert:
                         _navigator.CurrentViewModel = new ConvertViewModel();
                         break;
+                    case ViewType.Search:
+                        ISearchService searchService = new SearchService();
+                        _navigator.CurrentViewModel = SearchViewModel.LoadViewModel(searchService);
+                        break;
                     default:
                         break;
                 }

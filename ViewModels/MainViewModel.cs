@@ -1,12 +1,9 @@
 ﻿using Cr_Interface.Model;
 using Cr_Interface.Services;
-using Cr_Interface.Services.API;
 using Cr_Interface.State.Navigators;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cr_Interface.ViewModels
@@ -20,8 +17,6 @@ namespace Cr_Interface.ViewModels
         public INavigator navigator { get; set; } = new Navigator();
         
         public ObservableCollection<Asset> Assets { get; set; }
-
-        public string Name { get; set; }
 
         private MainViewModel(ICurrenciesService currenciesService)
         {
@@ -48,8 +43,6 @@ namespace Cr_Interface.ViewModels
             {
                 Assets.Add(asset);
             }
-
-            Name = Assets.First().Name;
         }
     }
 }

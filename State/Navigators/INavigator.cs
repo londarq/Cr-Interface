@@ -12,7 +12,8 @@ namespace Cr_Interface.State.Navigators
     {
         Main,
         Chart,
-        Convert
+        Convert,
+        Search
     }
 
     public interface INavigator

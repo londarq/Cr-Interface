@@ -40,10 +40,5 @@ namespace Cr_Interface
                 }
             }
         }
-
-        private void InfoCard_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

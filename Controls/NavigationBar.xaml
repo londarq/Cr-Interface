@@ -34,5 +34,13 @@
             </StackPanel>
         </Button>
 
+        <Button Style="{StaticResource menuButton}"
+                Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.Search}">
+            <StackPanel Orientation="Horizontal">
+                <Icon:PackIconMaterial Kind="SearchWeb" Style="{StaticResource menuButtonIcon}"/>
+                <TextBlock Text="Search" Style="{StaticResource menuButtonText}"/>
+            </StackPanel>
+        </Button>
+
     </StackPanel>
 </UserControl>

@@ -92,23 +92,11 @@
                         </Border>
 
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Hello There" Style="{StaticResource titleText}" FontSize="26" FontWeight="Bold"/>
-                            <TextBlock Text="Have a Nice Day" Foreground="#6C879A" Margin="0 3 0 0"/>
+                            <TextBlock Text="Oh Hello There" Style="{StaticResource titleText}" FontSize="26" FontWeight="Bold"/>
+                            <TextBlock Text="What's Up?" Foreground="#6C879A" Margin="0 3 0 0"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <!--Search Textbox-->
-                    <Grid Width="300" HorizontalAlignment="Right">
-                        <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
-                                   Text="Search for..." IsHitTestVisible="False"
-                                   Visibility="{Binding ElementName=textBoxSearch, Path=Text, Converter={StaticResource boolToVisConv}}"/>
-
-                        <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
-
-                        <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Foreground="#ff6d46" Margin="0 0 15 0"
-                                               HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    </Grid>
-                    
                 </Grid>
             </Border>
 
