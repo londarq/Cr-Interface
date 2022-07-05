@@ -27,13 +27,6 @@ namespace Cr_Interface.Services.API
                 List<Asset> apiCurrencies = JsonSerializer.Deserialize<List<Asset>>(jsonResponse);
 
                 return apiCurrencies;
-                //    .Select(apiAsset => new Asset()
-                //{
-                //    Id = apiAsset.Id,
-                //    Symbol = apiAsset.Symbol,
-                //    Name = apiAsset.Name,
-                //    CurrentPrice = apiAsset.CurrentPrice
-                //});
             }
         }
     }

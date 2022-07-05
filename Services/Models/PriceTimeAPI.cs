@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Cr_Interface.Model
+namespace Cr_Interface.Services.Models
 {
-    public class PriceWTime
+    public class PriceTimeAPI
     {
         [JsonPropertyName("prices")]
         public double[][] Prices { get; set; }

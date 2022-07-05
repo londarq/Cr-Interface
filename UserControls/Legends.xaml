@@ -1,8 +1,0 @@
-﻿<UserControl x:Class="Cr_Interface.UserControls.Legends"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StackPanel Orientation="Horizontal">
-        <Border Width="12" Height="12" Background="#ff6d48" CornerRadius="3"/>
-        <TextBlock Text="Bitcoin" VerticalAlignment="Center" Margin="7 0 0 0" Foreground="#6c879a"/>
-    </StackPanel>
-</UserControl>

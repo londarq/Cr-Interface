@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:uc="clr-namespace:Cr_Interface.UserControls"
 
         xmlns:views="clr-namespace:Cr_Interface.Views"
         xmlns:controls="clr-namespace:Cr_Interface.Controls"

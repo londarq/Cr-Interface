@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Cr_Interface.Controls"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:nav="clr-namespace:Cr_Interface.State.Navigators"
 
@@ -18,7 +17,7 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource menuButton}"
+        <!--<Button Style="{StaticResource menuButton}"
                 Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.Chart}">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial Kind="ChartLine" Style="{StaticResource menuButtonIcon}"/>
@@ -32,7 +31,7 @@
                 <Icon:PackIconMaterial Kind="SwapHorizontalCircle" Style="{StaticResource menuButtonIcon}"/>
                 <TextBlock Text="Convert" Style="{StaticResource menuButtonText}"/>
             </StackPanel>
-        </Button>
+        </Button>-->
 
         <Button Style="{StaticResource menuButton}"
                 Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.Search}">

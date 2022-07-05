@@ -10,6 +10,8 @@ namespace Cr_Interface.Model
 {
     public class SearchResult
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public string Symbol { get; set; }

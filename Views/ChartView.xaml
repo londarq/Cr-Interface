@@ -5,74 +5,113 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:uc="clr-namespace:Cr_Interface.UserControls"
 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Border Style="{StaticResource whiteBorder}" Margin="20 0 0 0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Grid Margin="15 5">
-            <!--Title-->
-            <TextBlock Text="Chart" Style="{StaticResource titleText}"/>
+        <Border Grid.Row="0" Style="{StaticResource whiteBorder}" Margin="20 0 0 15">
+            <Grid Margin="15 5">
+                <TextBlock Text="Details" Style="{StaticResource titleText}" VerticalAlignment="Center"/>
+                    
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <StackPanel Margin="10 0" Orientation="Horizontal">
+                        <TextBlock Margin="0" Text="Price: $" 
+                                   Style="{StaticResource menuButtonText}" VerticalAlignment="Center"/>
+                        <TextBlock Margin="0" Text="{Binding Path=Details.PriceChange24h, UpdateSourceTrigger=PropertyChanged}" 
+                                   Style="{StaticResource menuButtonText}" VerticalAlignment="Center"/>
+                    </StackPanel>
 
-            <!--Legends-->
-            <uc:Legends HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 8 10 0"/>
+                    <StackPanel Margin="10 0" Orientation="Horizontal">
+                        <TextBlock Margin="0" Text="Price Change for 24h: " 
+                                   Style="{StaticResource menuButtonText}" VerticalAlignment="Center"/>
+                        <TextBlock Margin="0" Text="{Binding Details.CurrentPrice, UpdateSourceTrigger=PropertyChanged}" 
+                                   Style="{StaticResource menuButtonText}" VerticalAlignment="Center"/>
+                    </StackPanel>
 
-            <!--Chart-->
-            <Grid>
-                <lvc:CartesianChart Margin="5,40,0,23" LegendLocation="None">
+                    <StackPanel Margin="10 0" Orientation="Horizontal">
+                        <TextBlock Margin="0" Text="Volume: " 
+                                   Style="{StaticResource menuButtonText}" VerticalAlignment="Center"/>
+                        <TextBlock Margin="0" Text="{Binding Details.TotalVolume, UpdateSourceTrigger=PropertyChanged}" 
+                                   Style="{StaticResource menuButtonText}" VerticalAlignment="Center"/>
+                    </StackPanel>
 
-                    <lvc:CartesianChart.DataTooltip>
-                        <lvc:DefaultTooltip Background="Red" Foreground="White" BulletSize="10" Opacity="0.7"/>
-                    </lvc:CartesianChart.DataTooltip>
-
-
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Time" Labels="{Binding TimeIntervals}" Foreground="#90a3b2" ShowLabels="True">
-                            <lvc:Axis.Separator>
-                                <lvc:Separator StrokeThickness="0"/>
-                            </lvc:Axis.Separator>
-                        </lvc:Axis>
-                    </lvc:CartesianChart.AxisX>
-
-
-                    <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Price" Foreground="#90a3b2" ShowLabels="True">
-                            <lvc:Axis.Separator>
-                                <lvc:Separator StrokeThickness="0"/>
-                            </lvc:Axis.Separator>
-                        </lvc:Axis>
-                    </lvc:CartesianChart.AxisY>
-
-
-                    <lvc:CartesianChart.Series>
-
-                        <lvc:LineSeries Title="$" Fill="Transparent" StrokeThickness="3" PointGeometrySize="0" Values="{Binding AssetPrice}">
-                            <lvc:LineSeries.Stroke>
-                                <LinearGradientBrush>
-                                    <!--<GradientStop Color="#ffffff" Offset="0.06"/>-->
-                                    <GradientStop Color="#fe6c47" Offset="0.5"/>
-                                    <!--<GradientStop Color="#ffffff" Offset="0.93"/>-->
-                                </LinearGradientBrush>
-                            </lvc:LineSeries.Stroke>
-                        </lvc:LineSeries>
-
-                    </lvc:CartesianChart.Series>
-
-                </lvc:CartesianChart>
+                </StackPanel>
             </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="20 0 0 0">
 
-            <!--Note-->
-            <Grid VerticalAlignment="Bottom" Margin="10 0">
-                <Icon:PackIconMaterial Kind="Information" Foreground="#f96654"/>
-                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" LineHeight="18" Foreground="#b7b7b7"
-                                   Text="**Bitcoin to US dollar price change for one month."/>
+            <Grid Margin="15 5">
+                <!--Title-->
+                <TextBlock Text="Chart" Style="{StaticResource titleText}"/>
+
+                <!--Legends-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 8 10 0">
+                    <Border Width="12" Height="12" Background="#ff6d48" CornerRadius="3"/>
+                    <TextBlock Text="{Binding AssetName}" VerticalAlignment="Center" Margin="7 0 0 0" Foreground="#6c879a"/>
+                </StackPanel>
+
+                <!--Chart-->
+                <Grid>
+                    <lvc:CartesianChart Margin="5,40,0,23" LegendLocation="None">
+
+                        <lvc:CartesianChart.DataTooltip>
+                            <lvc:DefaultTooltip Background="Red" Foreground="White" BulletSize="10" Opacity="0.7"/>
+                        </lvc:CartesianChart.DataTooltip>
+
+
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Time" Labels="{Binding TimeIntervals}" Foreground="#90a3b2" ShowLabels="True">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="2"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+
+
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Price" Foreground="#90a3b2" ShowLabels="True">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="2"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+
+
+                        <lvc:CartesianChart.Series>
+
+                            <lvc:LineSeries Title="$" Fill="Transparent" StrokeThickness="3" PointGeometrySize="0" Values="{Binding AssetPrice}">
+                                <lvc:LineSeries.Stroke>
+                                    <LinearGradientBrush>
+                                        <!--<GradientStop Color="#ffffff" Offset="0.06"/>-->
+                                        <GradientStop Color="#fe6c47" Offset="0.5"/>
+                                        <!--<GradientStop Color="#ffffff" Offset="0.93"/>-->
+                                    </LinearGradientBrush>
+                                </lvc:LineSeries.Stroke>
+                            </lvc:LineSeries>
+
+                        </lvc:CartesianChart.Series>
+
+                    </lvc:CartesianChart>
+                </Grid>
+
+                <!--Note-->
+                <Grid VerticalAlignment="Bottom" Margin="10 0">
+                    <Icon:PackIconMaterial Kind="Information" Foreground="#f96654"/>
+                    <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" LineHeight="18" Foreground="#b7b7b7"
+                                       Text="Asset to US dollar price change for one day."/>
+                </Grid>
+
             </Grid>
-
-        </Grid>
-    </Border>
+        </Border>
+    </Grid>
 
 </UserControl>

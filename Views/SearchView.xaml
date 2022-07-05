@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Cr_Interface.Views"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
 
              mc:Ignorable="d" 
@@ -42,9 +41,10 @@
             
             </Grid>
         </Border>
-        
-        <ListView Grid.Row="1" ItemsSource="{Binding SearchResults}" Background="Transparent" BorderBrush="Transparent" SelectionMode="Single"
-                   HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <ListView Grid.Row="1" ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedAsset}"
+                  Background="Transparent" BorderBrush="Transparent" SelectionMode="Single"
+                  HorizontalAlignment="Center" VerticalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -53,7 +53,7 @@
 
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>

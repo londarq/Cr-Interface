@@ -10,12 +10,6 @@
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControls\InfoCard.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControls\Legends.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\ChartView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,12 +31,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Common.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\InfoCard.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\Legends.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ChartView.xaml">

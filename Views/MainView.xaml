@@ -3,23 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Cr_Interface.Views"
 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
     <Grid Margin="15 0 0 0">
-        <ListView ItemsSource="{Binding Assets}" Background="Transparent" BorderBrush="Transparent" SelectionMode="Single"
-                   HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ListView ItemsSource="{Binding Assets}" SelectedItem="{Binding SelectedAsset}" 
+                  Background="Transparent" BorderBrush="Transparent" SelectionMode="Single"
+                  HorizontalAlignment="Center" VerticalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
                         <Border Style="{StaticResource whiteBorder2}">
                             <Grid Width="800">
-                                
+
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
@@ -31,13 +31,21 @@
                                 <TextBlock Grid.Column="2" Text="{Binding Name}" Style="{StaticResource menuButtonText}"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 <TextBlock Grid.Column="3" Text="{Binding CurrentPrice}" Style="{StaticResource menuButtonText}"
-                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>   
-                                
+                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
                             </Grid>
                         </Border>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            
+            <!--<ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="IsHitTestVisible" Value="False"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </ListView.ItemContainerStyle>-->
         </ListView>
     </Grid>
 </UserControl>

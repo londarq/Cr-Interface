@@ -39,16 +39,16 @@ namespace Cr_Interface.Commands
                         ICurrenciesService currencyService = new CurrenciesService();
                         _navigator.CurrentViewModel = MainViewModel.LoadViewModel(currencyService);
                         break;
-                    case ViewType.Chart:
-                        IAssetService assetServise = new AssetService();
-                        _navigator.CurrentViewModel = ChartViewModel.LoadViewModel(assetServise);
-                        break;
-                    case ViewType.Convert:
-                        _navigator.CurrentViewModel = new ConvertViewModel();
-                        break;
+                    //case ViewType.Chart:
+                    //    IAssetService assetServise = new AssetService();
+                    //    _navigator.CurrentViewModel = ChartViewModel.LoadViewModel("bitcoin", assetServise);
+                    //    break;
+                    //case ViewType.Convert:
+                    //    _navigator.CurrentViewModel = new ConvertViewModel();
+                    //    break;
                     case ViewType.Search:
                         ISearchService searchService = new SearchService();
-                        _navigator.CurrentViewModel = SearchViewModel.LoadViewModel(searchService);
+                        _navigator.CurrentViewModel = SearchViewModel.LoadViewModel(searchService, _navigator);
                         break;
                     default:
                         break;

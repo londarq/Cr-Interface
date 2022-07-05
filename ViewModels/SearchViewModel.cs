@@ -1,5 +1,7 @@
 ﻿using Cr_Interface.Model;
 using Cr_Interface.Services;
+using Cr_Interface.Services.API;
+using Cr_Interface.State.Navigators;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -13,25 +15,36 @@ namespace Cr_Interface.ViewModels
     {
         private readonly ISearchService _searchService;
 
+        public INavigator _navigator;
+
         public ObservableCollection<SearchResult> SearchResults { get; set; }
 
         private string _query;
         public string Query
-        { 
+        {
             get { return _query; }
             set { _query = value; NotifyPropertyChanged(); GetResults(_query); }
         }
 
-        private SearchViewModel(ISearchService searchService)
+        private SearchResult _selectedAsset;
+        public SearchResult SelectedAsset
+        {
+            get { return _selectedAsset; }
+            set { _selectedAsset = value; NotifyPropertyChanged(); GoToDetails(_selectedAsset); }
+        }
+
+        private SearchViewModel(ISearchService searchService, INavigator navigator)
         {
             _searchService = searchService;
+            _navigator = navigator;
+
 
             SearchResults = new ObservableCollection<SearchResult>();
         }
 
-        public static SearchViewModel LoadViewModel(ISearchService searchService, Action<Task> onLoaded = null)
+        public static SearchViewModel LoadViewModel(ISearchService searchService, INavigator navigator, Action<Task> onLoaded = null)
         {
-            SearchViewModel viewModel = new SearchViewModel(searchService);
+            SearchViewModel viewModel = new SearchViewModel(searchService, navigator);
 
             viewModel.Load("").ContinueWith(t => onLoaded?.Invoke(t));
 
@@ -52,6 +65,15 @@ namespace Cr_Interface.ViewModels
         private void GetResults(string query, Action<Task> onLoaded = null)
         {
             this.Load(query).ContinueWith(t => onLoaded?.Invoke(t));
+        }
+
+        private void GoToDetails(SearchResult selectedAsset)
+        {
+            if (selectedAsset != null) 
+            {
+                IAssetService assetServise = new AssetService();
+                _navigator.CurrentViewModel = ChartViewModel.LoadViewModel(selectedAsset.Id, assetServise);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -21,6 +21,7 @@ namespace Cr_Interface
 
             //AssetService assetService = new AssetService();
             //var resultAssetService = await assetService.GetAsset("bitcoin");
+            //var resultAssetService2 = await assetService.GetAssetDetails("bitcoin");
 
             MainWindow mainWindow = new MainWindow();
             ICurrenciesService currencyService = new CurrenciesService();

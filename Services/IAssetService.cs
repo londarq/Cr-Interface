@@ -10,6 +10,8 @@ namespace Cr_Interface.Services
 {
     public interface IAssetService
     {
-        Task<IEnumerable<PriceUWU>> GetAsset(string assetId);
+        Task<IEnumerable<PriceTime>> GetAsset(string assetId);
+
+        Task<AssetDetails> GetAssetDetails(string assetId);
     }
 }
