@@ -1,5 +1,5 @@
 # Cr-Interface
-.Core WPF MVVM application for tracking cryptocurrencies market
+.NET Core WPF MVVM application for tracking cryptocurrencies market
 
 Capabilities:
   - get top 10 currencies (equivalent to Binance main page)
